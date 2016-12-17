@@ -1,0 +1,40 @@
+﻿@model ExpedienteDigital.Models.Document_Type
+
+@{
+    ViewBag.Title = "Tipo de Documento";
+}
+
+<h2>Borrar</h2>
+
+<h3>Esta seguro que desea borrar esta informacion?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-primary" })
+            <input type="submit" value="Delete" class="btn btn-success" /> 
+        </div>
+    }
+</div>

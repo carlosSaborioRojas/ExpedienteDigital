@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ExpedienteDigital.Models.Civil_Status>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Estado Civil</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Estado", "Create",null,new { @class= "btn btn-primary" })
+</p>
+<table class="table">
+    <tr class="danger">
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>Opciones</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="success">
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.CivilStatusID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.CivilStatusID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.CivilStatusID })
+        </td>
+    </tr>
+}
+
+</table>

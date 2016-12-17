@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ExpedienteDigital.Models.State_Employees>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tipos de Estado de Empleado</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Estado", "Create",null,new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr class="danger">
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="success">
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.StateEmpleyeesId }) |
+            <!-- @Html.ActionLink("Detalles", "Details", new { id=item.StateEmpleyeesId }) | -->
+            @Html.ActionLink("Borrar", "Delete", new { id=item.StateEmpleyeesId })
+        </td>
+    </tr>
+}
+
+</table>

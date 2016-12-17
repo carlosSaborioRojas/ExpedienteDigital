@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ExpedienteDigital.Models.Empleado>
+
+@{
+    ViewBag.Title = "Modulo de Empleado";
+}
+
+<h2>Empleados</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Empleado", "Create",null,new { @class= "btn btn-primary" })
+</p>
+
+
+
+    <table class="table">
+        <tr class="danger">
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SegundoApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StateEmpleyeesId)
+            </th>
+            <th>
+                Opciones
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="success">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SegundoApellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StateEmployees.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.EmpleadoID }) |
+                    @Html.ActionLink("Detalle", "Detalles", new { id = item.EmpleadoID }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.EmpleadoID }) |
+                    @Html.ActionLink("Adjuntos", "Adjuntar", new { id = item.EmpleadoID })
+                </td>
+            </tr>
+        }
+
+    </table>
