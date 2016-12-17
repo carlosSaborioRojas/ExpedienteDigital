@@ -79,6 +79,9 @@ namespace ExpedienteDigital.Controllers
         }
 
         // GET: Empleado/Edit/5
+
+            //ESTO ES UNA PRUEBA
+
         public ActionResult Editar(int? id)
         {
             if (id == null)
